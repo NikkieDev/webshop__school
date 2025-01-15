@@ -1,5 +1,5 @@
 <script src="js/global/product-list.js" defer></script>
-
+<link rel='stylesheet' href="css/product-section.css">
 <h3 class="mb-2">Categories</h3>
 <section class="categories-wrapper flex flex-col gap-2">
   <div class="categories--select-wrapper gap-4 flex">

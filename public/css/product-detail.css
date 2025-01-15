@@ -89,3 +89,7 @@ input[type="number"] {
   display: flex;
   gap: 8px;
 }
+
+.categories--footer {
+  padding: 24px;
+}
