@@ -14,15 +14,17 @@ class Product
   public function get(string $uuid)
   {
     $sql_query = "SELECT
-                    product.name AS `product_name`
-                    product.price AS `product_price`
+                    product.name AS `product_name`,
+                    product.price AS `product_price`,
+                    product.inventory AS `product_stock`,
                     product.release_year AS `product_release_year`,
+                    product.deleted AS `product_deleted`,
                     tag.name AS `tag_name`,
                     product_image.name AS `image_name`
                   FROM
                     product
                   INNER JOIN
-                    product_with_tag.tag_id ON product.id = product_with_tag.product_id
+                    product_with_tag ON product.id = product_with_tag.product_id
                   INNER JOIN
                     product_image ON product_image.product_id = product.id
                   INNER JOIN
@@ -31,13 +33,13 @@ class Product
                     product.uuid = :uuid";
 
     $stmt = $this->pdo->prepare($sql_query);
-    $stmt->bindParam(":uuid", $uuid, PDO::PARAM::STR);
+    $stmt->bindParam(":uuid", $uuid, PDO::PARAM_STR);
     
     try {
       $stmt->execute();
       return $stmt->fetch();
     } catch (Exception $e) {
-      echo "An error has occured.";
+      echo "An error has occured. " . $e;
       exit;
     }
   }

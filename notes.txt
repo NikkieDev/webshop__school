@@ -4,3 +4,4 @@ admin api
 - CRUD orders
 - CRUD users
 - CRUD tickets
+- CRUD cart

@@ -2,7 +2,6 @@ const categoryWrapper = document.querySelector('.categories-wrapper');
 const categories = document.querySelectorAll('.category');
 const productsListWrapper = document.querySelector('.category--items-wrapper');
 
-
 function setProducts(products) {
   productsListWrapper.innerHTML = null;
   products.forEach(product => {
