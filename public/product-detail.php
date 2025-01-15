@@ -29,6 +29,7 @@ $item = $product->get($uuid);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $item['product_name'] ?> details</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel='stylesheet' href="css/product-detail.css">
 </head>
 <body>
   <nav class="nav-wrapper py-2 px-4 flex items-center justify-center">
@@ -42,24 +43,29 @@ $item = $product->get($uuid);
   </nav>
   <div class="product-detail--parent__wrapper">
     <div class="product-detail--wrapper">
-      <div class="product-detail--image__wrapper">
+      <div class="product-detail--image__wrapper product-detail--left">
         <img src="/cdn/<?php echo $item['image_name'] ?>" alt="" class="product-detail--image">
       </div>
-      <div class="product-detail--meta__wrapper">
-        <div class="product-detail--meta">
-          <h3 class="<?php if ($item['product_deleted']) echo 'strikethrough' ?> "><?php echo $item['product_name']; ?></h3>
-          <span class="product-detail--meta__price"><?php echo $item['product_price'] ?></span>
-          <span class="product-detail--meta__tag"><?php echo $item['tag_name'] ?></span>
-          <span class="product-detail--meta__stock"><?php echo $item['product_stock'] ?></span>
+      <div class="product-detail--right">
+        <div class="product-detail--meta__wrapper">
+          <div class="product-detail--meta">
+            <h3 class="product-detail--meta__title <?php if ($item['product_deleted']) echo 'strikethrough' ?> "><?php echo $item['product_name']; ?></h3>
+            <span class="product-detail--meta__price">&euro;<?php echo $item['product_price'] ?></span>
+            <span class="product-detail--meta__tag"><?php echo $item['tag_name'] ?></span>
+            <span class="product-detail--meta__stock"><?php echo $item['product_stock'] ?> in stock</span>
+          </div>
         </div>
-      </div>
-      <div class="product-detail--cta__wrapper">
-        <div class="product-detail--cta">
-          <input type="number" name="quantity" class="product-detail--cta__quantity">
-          <button class="product--item-button">Add to cart</button>
+        <div class="product-detail--cta__wrapper">
+          <div class="product-detail--cta">
+            <input type="number" name="quantity" class="product-detail--cta__quantity" placeholder='00'>
+            <button class="cta-button" onclick="addToCart('<?php echo $item['product_uuid']; ?>')">Add to cart</button>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="categories--footer">
+    <?php require_once "./partials/product-section.php" ?>
   </div>
 </body>
 </html>
