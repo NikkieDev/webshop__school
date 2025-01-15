@@ -1,0 +1,32 @@
+.header--image-wrapper {
+  position: relative;
+}
+
+.header--image {
+  height: 480px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.header--image__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.category {
+  min-width: 128px;
+}
+
+.categories-wrapper {
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
