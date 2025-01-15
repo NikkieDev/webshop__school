@@ -30,3 +30,11 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+.product--item-add__to__cart {
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  width: fit-content;
+  padding: 6px 12px;
+}

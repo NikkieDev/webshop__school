@@ -1,0 +1,6 @@
+admin api
+- upload-image.php
+- CRUD product
+- CRUD orders
+- CRUD users
+- CRUD tickets

@@ -11,7 +11,8 @@ class ProductHandler
 
   public function getList(int $amount, string $tag, ?int $start = null)
   {
-    $sql_query = "SELECT product.name AS `product_name`, 
+    $sql_query = "SELECT product.id AS `product_id`, 
+                         product.name AS `product_name`, 
                          product.price AS `product_price`, 
                          product.release_year AS `product_release_year`, 
                          tag.name AS `tag_name` 
